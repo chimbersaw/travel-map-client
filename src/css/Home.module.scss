@@ -1,0 +1,119 @@
+@import "~font-awesome/scss/font-awesome";
+
+$title-color: #cef0d4;
+$title-shadow-color: #082b34;
+
+.header {
+  @extend .centered;
+  margin-top: 100px;
+  color: $title-color;
+  font-family: "Rouge Script", cursive;
+  font-size: calc(2em + 7vw);
+  font-weight: normal;
+  line-height: 40px;
+  white-space: nowrap;
+  text-shadow: 1px 1px 2px $title-shadow-color;
+}
+
+.link {
+  text-decoration: none !important;
+}
+
+.centered {
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+}
+
+$button-text-color: #000000;
+$button-active-text-color: #ffffff;
+$button-background-color: #ff5b4c;
+$button-active-background-color: #2dbd7d;
+$button-active-box-shadow-color: #0c280a;
+
+.basicBtn {
+  @extend .centered;
+  font-family: Hack, monospace;
+  background: $button-background-color;
+  color: $button-text-color;
+  cursor: pointer;
+  padding: 1.5rem 2rem;
+  font-size: calc(1em + 2vw);
+  border: 0;
+  transition: all 0.5s;
+  border-radius: 10px;
+  width: auto;
+  outline: none;
+  display: block;
+
+  &:hover {
+    color: $button-active-text-color;
+  }
+}
+
+.loginBtn {
+  @extend .basicBtn;
+
+  top: 240px;
+
+  &::after {
+    @include fa-icon();
+    content: $fa-var-sign-in;
+    position: absolute;
+    left: 80%;
+    top: 55%;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    background: $button-active-background-color;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px $button-active-box-shadow-color;
+    padding: 1.5rem 6rem 1.5rem 2rem;
+    color: $button-active-text-color;
+
+    &::after {
+      opacity: 1;
+      transition: all 0.5s;
+      color: $button-active-text-color;
+    }
+  }
+}
+
+.registerBtn {
+  @extend .basicBtn;
+
+  top: 400px;
+
+  &::after {
+    @include fa-icon();
+    content: $fa-var-user-plus;
+    position: absolute;
+    left: 87%;
+    top: 54%;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    background: $button-active-background-color;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px $button-active-box-shadow-color;
+    padding: 1.5rem 5rem 1.5rem 2rem;
+    color: $button-active-text-color;
+
+    &::after {
+      opacity: 1;
+      transition: all 0.5s;
+      color: $button-active-text-color;
+    }
+  }
+}

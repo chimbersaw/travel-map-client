@@ -1,0 +1,68 @@
+@import "Cities.module.scss";
+@import "Form.module.scss";
+@import "~font-awesome/scss/font-awesome";
+
+.col {
+  float: left;
+}
+
+.col1 {
+  @extend .col;
+  width: 23vw;
+}
+
+.col2 {
+  @extend .col;
+  width: 22vw;
+}
+
+.col3 {
+  @extend .col;
+  width: 23vw;
+}
+
+.col4 {
+  @extend .col;
+  width: auto;
+}
+
+.friends {
+  position: absolute;
+  font-size: 3vw;
+  top: 6vh;
+  left: 6vw;
+}
+
+.friendList {
+  font-size: 1.5vw;
+}
+
+.searchBar {
+  padding-left: 0.6vw;
+  height: 3vw;
+  width: 20vw;
+  display: block;
+  font-size: 1.5vw;
+  margin-top: 0.1vh;
+}
+
+.addFriendBtn {
+  @extend .visitBtn;
+
+  font-size: 1.5vw;
+  margin-left: 0;
+  margin-top: 1vh;
+  display: block;
+}
+
+.declineRequestBtn {
+  color: red;
+  cursor: pointer;
+  font-size: 1.3vw;
+}
+
+.acceptRequestBtn {
+  color: limegreen;
+  cursor: pointer;
+  font-size: 1.3vw;
+}

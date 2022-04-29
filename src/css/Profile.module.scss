@@ -1,0 +1,115 @@
+@import "Home.module.scss";
+@import "Form.module.scss";
+
+.name {
+  @extend .centered;
+  top: 4.8vh;
+  font-size: 6vmax;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  font-weight: normal;
+  color: #112761;
+}
+
+.statsHeader {
+  position: absolute;
+  top: 25vh;
+  left: 6vw;
+  font-size: 3vmax;
+}
+
+.mainStats {
+  position: relative;
+  top: 35vh;
+  left: 6vw;
+  font-size: 2vmax;
+  width: 30vw;
+}
+
+.statsList {
+  position: relative;
+  top: 36vh;
+  left: 6vw;
+  padding-bottom: 3vh;
+}
+
+.line {
+  margin-left: 5.5vw;
+  margin-right: 5.5vw;
+  position: relative;
+  top: 21.5vh;
+  border-bottom: 2px solid #000;
+  display: block;
+}
+
+.visibilityButton {
+  position: relative;
+  top: 35vh;
+  left: 6vw;
+  font-size: 1vmax;
+  width: 30vw;
+}
+
+.box {
+  width: 30vw;
+  height: 6.5vh;
+  border-left: 5px solid forestgreen;
+  padding-left: 0.5vw;
+  margin-top: 3vh;
+  -webkit-box-shadow: 9px 16px 22px -14px rgba(0, 0, 0, 0.52);
+  box-shadow: 9px 16px 22px -14px rgba(0, 0, 0, 0.52);
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+.statsBox {
+  margin-left: 2.5vw;
+  width: 10vw;
+  height: 3.3vh;
+  border-left: 5px solid #112761;
+  padding-left: 0.35vw;
+  margin-top: 2vh;
+  font-size: 1vmax;
+  -webkit-box-shadow: 9px 16px 22px -14px rgba(0, 0, 0, 0.52);
+  box-shadow: 9px 16px 22px -14px rgba(0, 0, 0, 0.52);
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+.longText {
+  width: 80vw;
+  position: relative;
+}
+
+.statsListHeader {
+  margin-left: 1.4vw;
+  margin-top: 2.5vh;
+  font-size: 1.8vmax;
+}
+
+.statsBtn {
+  @extend .btn;
+
+  width: 18vmax;
+  margin-top: -3vh;
+}
+
+.friends {
+  position: absolute;
+  font-size: 3vmax;
+  top: 25vh;
+  left: 42vw;
+}
+
+.friendList {
+  margin-top: 3vh;
+  font-size: 1.8vmax;
+}
+
+.manageFriendList {
+  @extend .btn;
+
+  position: absolute;
+  top: 26vh;
+  left: 65vw;
+  width: 17vmax;
+}

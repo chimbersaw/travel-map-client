@@ -1,0 +1,33 @@
+@import "Form.module.scss";
+
+.visitBtn {
+  @extend .btn;
+
+  font-size: 200%;
+  width: 40%;
+  margin-left: 5%;
+  margin-top: -2vh;
+  float: left;
+  margin-bottom: 2vh;
+}
+
+.visitCenteredBtn {
+  @extend .btn;
+
+  width: 40%;
+  font-size: 200%;
+  top: 0;
+  left: 50%;
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+  margin-bottom: 10px;
+}
+
+.desireBtn {
+  @extend .visitBtn;
+  margin-left: 5%;
+}
+
+.cities {
+  display: block;
+}

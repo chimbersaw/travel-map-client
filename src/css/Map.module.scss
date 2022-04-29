@@ -1,0 +1,39 @@
+.legend {
+  position: absolute;
+  right: 0;
+  width: 180px;
+  height: 50px;
+  background-color: white;
+  z-index: 1;
+}
+
+.bigLegend {
+  @extend .legend;
+  height: 100px;
+}
+
+.box {
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+}
+
+.boxCommonVisited {
+  @extend .box;
+  background-color: #b65def;
+}
+
+.boxVisited {
+  @extend .box;
+  background-color: #fb6c3f;
+}
+
+.boxCommonDesired {
+  @extend .box;
+  background-color: #1a50ff;
+}
+
+.boxDesired {
+  @extend .box;
+  background-color: #90ee90;
+}

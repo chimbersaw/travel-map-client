@@ -1,0 +1,57 @@
+@import "Profile.module.scss";
+@import "Cities.module.scss";
+
+$background-color: hsl(0, 100%, 63%);
+$background-hover-color: hsl(0, 66%, 53%);
+$background-active-color: hsl(0, 59%, 45%);
+
+.FriendProfile {
+  font-size: 25px;
+}
+
+.showMapBtn {
+  @extend .btn;
+
+  font-size: inherit;
+  width: 250px;
+  height: 50px;
+  margin-top: -40px;
+}
+
+.friendStatsBtn {
+  @extend .showMapBtn;
+
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.friendStatsList {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.friendStatsBox {
+  @extend .statsBox;
+
+  margin-left: 0;
+}
+
+.deleteFriendBtn {
+  @extend .visitBtn;
+
+  font-weight: 400;
+  font-size: 26px;
+  background: $background-color;
+  margin-left: 5px;
+  margin-top: 15px;
+  display: block;
+}
+
+.deleteFriendBtn:hover {
+  background: $background-hover-color;
+  box-shadow: inset 0 0 0 1px #ffffff;
+}
+
+.deleteFriendBtn:active {
+  background: $background-active-color;
+}
