@@ -3,9 +3,11 @@ import {NavLink} from "react-router-dom";
 import "../css/Background.scss";
 import styles from "../css/Home.module.scss";
 import Sidebar from "./Sidebar.js";
+import {health} from "./Ping";
 
 export default class Home extends React.Component {
     render() {
+        health().then(ignored => null)
         return (
             <div className="Home">
                 <Sidebar/>
