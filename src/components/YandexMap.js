@@ -1,5 +1,5 @@
+import {Map, YMaps} from "@pbe/react-yandex-maps";
 import React from "react";
-import {Map, YMaps} from "react-yandex-maps";
 
 const mapState = {
     center: [0, 0],

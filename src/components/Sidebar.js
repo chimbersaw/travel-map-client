@@ -1,7 +1,7 @@
 import React from "react";
 import {slide as Menu} from "react-burger-menu";
-import "../css/Sidebar.scss";
 import {NavLink} from "react-router-dom";
+import "../css/Sidebar.scss";
 import {ping} from "./Ping.js";
 
 export default class Sidebar extends React.Component {
@@ -12,6 +12,10 @@ export default class Sidebar extends React.Component {
             loggedIn: false
         };
     }
+
+    forceReload = path => () => {
+        window.open(path, "_self");
+    };
 
     componentDidMount() {
         ping().then(() => {
@@ -73,6 +77,7 @@ export default class Sidebar extends React.Component {
                     }}
                     className="menu-item"
                     to="/map"
+                    onClick={this.forceReload("/map")} // idk, it crashes otherwise
                 >
                     Map
                 </NavLink>

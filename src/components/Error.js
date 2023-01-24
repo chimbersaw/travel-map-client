@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Background.scss";
-import Sidebar from "./Sidebar.js";
 import styles from "../css/Home.module.scss";
+import Sidebar from "./Sidebar.js";
 
 export default class Error extends React.Component {
     render() {

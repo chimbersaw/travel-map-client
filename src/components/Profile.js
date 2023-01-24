@@ -1,12 +1,12 @@
+import Axios from "axios";
 import React from "react";
-import Sidebar from "./Sidebar.js";
-import {Redirect} from "react-router";
-import styles from "../css/Profile.module.scss";
-import {NavLink} from "react-router-dom";
 import {Button, Modal} from "react-bootstrap";
+import {Navigate} from "react-router";
+import {NavLink} from "react-router-dom";
+import styles from "../css/Profile.module.scss";
 import FriendProfile from "./FriendProfile.js";
+import Sidebar from "./Sidebar.js";
 
-const axios = require("axios").default;
 const STATS_PATH = "api/user/stats";
 const FRIENDS_PATH = "api/user/friends";
 const SERVER_STATS_URL = process.env.REACT_APP_SERVER_URL + STATS_PATH;
@@ -14,7 +14,7 @@ const SERVER_FRIENDS_LIST_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_PATH;
 
 export async function getFriendsList() {
     let friends = null;
-    await axios.get(SERVER_FRIENDS_LIST_URL, {
+    await Axios.get(SERVER_FRIENDS_LIST_URL, {
         withCredentials: true
     }).then(result => {
         friends = result.data;
@@ -40,7 +40,7 @@ export default class Profile extends React.Component {
 
     getStats = async () => {
         let stats = null;
-        await axios.get(SERVER_STATS_URL, {
+        await Axios.get(SERVER_STATS_URL, {
             withCredentials: true
         }).then(result => {
             stats = result.data;
@@ -91,7 +91,7 @@ export default class Profile extends React.Component {
 
     render() {
         if (this.state.waitForServer) return <span>Loading profile...</span>;
-        if (!this.state.loggedIn) return <Redirect to="/login"/>;
+        if (!this.state.loggedIn) return <Navigate to="/login"/>;
 
         return (
             <div className="Profile">
@@ -145,7 +145,7 @@ export default class Profile extends React.Component {
                         Visited cities stats:
                     </div>
                     {this.state.stats.citiesStats.map(country =>
-                        <div className={styles.statsBox}>
+                        <div key={country.iso} className={styles.statsBox}>
                             <div className={styles.longText}>
                                 {country.name + ": " + country.citiesNumber}
                             </div>

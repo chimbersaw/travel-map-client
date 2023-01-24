@@ -1,35 +1,33 @@
-import React from "react";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./components/Home.js";
+import React from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Error from "./components/Error.js";
-import CountryClick from "./components/CountryClick.js";
-import Profile from "./components/Profile.js";
-import Friends from "./components/Friends.js";
 import FriendMap from "./components/FriendMap.js";
-import Register from "./components/Register.js";
+import Friends from "./components/Friends.js";
+import Home from "./components/Home.js";
 import Login from "./components/Login.js";
-import Ping from "./components/Ping.js";
 import Logout from "./components/Logout.js";
+import Map from "./components/Map.js";
+import Ping from "./components/Ping.js";
+import Profile from "./components/Profile.js";
+import Register from "./components/Register.js";
 
 export default class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
-                <div className="App">
-                    <Switch>
-                        <Route path="/" component={Home} exact/>
-                        <Route path="/map" component={CountryClick} exact/>
-                        <Route path="/profile" component={Profile} exact/>
-                        <Route path="/friends" component={Friends} exact/>
-                        <Route path="/friends/map" component={FriendMap} exact/>
-                        <Route path="/registration" component={Register}/>
-                        <Route path="/login" component={Login}/>
-                        <Route path="/ping" component={Ping}/>
-                        <Route path="/logout" component={Logout}/>
-                        <Route component={Error}/>
-                    </Switch>
-                </div>
+                <Routes>
+                    <Route path="/" element={<Home/>} exact/>
+                    <Route path="/map" element={<Map/>} exact/>
+                    <Route path="/profile" element={<Profile/>} exact/>
+                    <Route path="/friends" element={<Friends/>} exact/>
+                    <Route path="/friends/map" element={<FriendMap/>} exact/>
+                    <Route path="/registration" element={<Register/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/ping" element={<Ping/>}/>
+                    <Route path="/logout" element={<Logout/>}/>
+                    <Route component={Error}/>
+                </Routes>
             </BrowserRouter>
         );
     }

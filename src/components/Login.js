@@ -1,13 +1,13 @@
+import Axios from "axios";
+import "font-awesome/css/font-awesome.min.css";
 import React from "react";
+import {NavLink} from "react-router-dom";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
-import "font-awesome/css/font-awesome.min.css";
-import Sidebar from "./Sidebar.js";
 import styles from "../css/Register.module.scss";
-import {NavLink} from "react-router-dom";
+import Sidebar from "./Sidebar.js";
 
-const axios = require("axios").default;
-const querystring = require("querystring");
+const querystring = require("querystring-es3");
 const LOGIN_PATH = "login";
 const SERVER_LOGIN_URL = process.env.REACT_APP_SERVER_URL + LOGIN_PATH;
 
@@ -39,7 +39,7 @@ export default class Login extends React.Component {
             }
         }
 
-        axios.post(SERVER_LOGIN_URL, querystring.stringify({
+        Axios.post(SERVER_LOGIN_URL, querystring.stringify({
             username: this.state.username,
             password: this.state.password
         }), {

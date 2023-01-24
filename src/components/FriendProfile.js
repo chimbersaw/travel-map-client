@@ -1,7 +1,7 @@
+import Axios from "axios";
 import React from "react";
 import styles from "../css/FriendProfile.module.scss";
 
-const axios = require("axios").default;
 const FRIENDS_STATS_PATH = "api/user/friends/stats";
 const SERVER_FRIEND_STATS_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_STATS_PATH;
 
@@ -18,7 +18,7 @@ export default class FriendProfile extends React.Component {
 
     getStats = async friendName => {
         let stats = null;
-        await axios.post(SERVER_FRIEND_STATS_URL, {
+        await Axios.post(SERVER_FRIEND_STATS_URL, {
             friendName: friendName
         }, {
             withCredentials: true

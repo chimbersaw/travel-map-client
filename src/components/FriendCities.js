@@ -1,6 +1,6 @@
+import Axios from "axios";
 import React from "react";
 
-const axios = require("axios").default;
 const VISITED_CITIES_PATH = "api/user/friends/cities";
 const COMMON_VISITED_CITIES_PATH = "api/user/friends/cities/common";
 const SERVER_VISITED_CITIES_URL = process.env.REACT_APP_SERVER_URL + VISITED_CITIES_PATH;
@@ -25,7 +25,7 @@ export default class Cities extends React.Component {
 
     getVisitedCities = async (iso, friendName) => {
         let visitedCities = [];
-        await axios.post(SERVER_VISITED_CITIES_URL, {
+        await Axios.post(SERVER_VISITED_CITIES_URL, {
             friendName: friendName,
             iso: iso
         }, {
@@ -43,7 +43,7 @@ export default class Cities extends React.Component {
 
     getCommonVisitedCities = async (iso, friendName) => {
         let visitedCities = [];
-        await axios.post(SERVER_COMMON_VISITED_CITIES_URL, {
+        await Axios.post(SERVER_COMMON_VISITED_CITIES_URL, {
             friendName: friendName,
             iso: iso
         }, {

@@ -1,11 +1,11 @@
+import Axios from "axios";
 import React from "react";
+import {NavLink} from "react-router-dom";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
 import styles from "../css/Register.module.scss";
 import Sidebar from "./Sidebar.js";
-import {NavLink} from "react-router-dom";
 
-const axios = require("axios").default;
 const REGISTRATION_PATH = "registration";
 const SERVER_REGISTRATION_URL = process.env.REACT_APP_SERVER_URL + REGISTRATION_PATH;
 
@@ -38,7 +38,7 @@ export default class Register extends React.Component {
             }
         }
 
-        axios.post(SERVER_REGISTRATION_URL, {
+        Axios.post(SERVER_REGISTRATION_URL, {
             email: this.state.email,
             username: this.state.username,
             password: this.state.password

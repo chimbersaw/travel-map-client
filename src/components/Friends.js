@@ -1,12 +1,12 @@
+import Axios from "axios";
 import React from "react";
-import Sidebar from "./Sidebar.js";
-import {Redirect} from "react-router";
-import styles from "../css/Friends.module.scss";
-import {getFriendsList} from "./Profile.js";
 import {Button, Modal} from "react-bootstrap";
+import {Navigate} from "react-router";
+import styles from "../css/Friends.module.scss";
 import FriendProfile from "./FriendProfile.js";
+import {getFriendsList} from "./Profile.js";
+import Sidebar from "./Sidebar.js";
 
-const axios = require("axios").default;
 const FRIENDS_PATH = "api/user/friends";
 const FRIENDS_REQUEST_PATH = FRIENDS_PATH + "/request";
 const FRIENDS_REMOVE_PATH = FRIENDS_PATH + "/remove";
@@ -39,7 +39,7 @@ export default class Friends extends React.Component {
 
     sendFriendRequest = async username => {
         let response = null;
-        await axios.post(SERVER_FRIENDS_REQUEST_SEND_URL, {
+        await Axios.post(SERVER_FRIENDS_REQUEST_SEND_URL, {
             friendName: username
         }, {
             withCredentials: true
@@ -51,7 +51,7 @@ export default class Friends extends React.Component {
 
     removeFriend = async username => {
         let response = null;
-        await axios.post(SERVER_FRIENDS_REMOVE_URL, {
+        await Axios.post(SERVER_FRIENDS_REMOVE_URL, {
             friendName: username
         }, {
             withCredentials: true
@@ -63,7 +63,7 @@ export default class Friends extends React.Component {
 
     cancelFriendRequest = async username => {
         let response = null;
-        await axios.post(SERVER_FRIENDS_REQUEST_CANCEL_URL, {
+        await Axios.post(SERVER_FRIENDS_REQUEST_CANCEL_URL, {
             friendName: username
         }, {
             withCredentials: true
@@ -75,7 +75,7 @@ export default class Friends extends React.Component {
 
     acceptFriendRequest = async username => {
         let response = null;
-        await axios.post(SERVER_FRIENDS_REQUEST_ACCEPT_URL, {
+        await Axios.post(SERVER_FRIENDS_REQUEST_ACCEPT_URL, {
             friendName: username
         }, {
             withCredentials: true
@@ -87,7 +87,7 @@ export default class Friends extends React.Component {
 
     declineFriendRequest = async username => {
         let response = null;
-        await axios.post(SERVER_FRIENDS_REQUEST_DECLINE_URL, {
+        await Axios.post(SERVER_FRIENDS_REQUEST_DECLINE_URL, {
             friendName: username
         }, {
             withCredentials: true
@@ -99,7 +99,7 @@ export default class Friends extends React.Component {
 
     getFriendRequests = async myRequests => {
         let requestsList = null;
-        await axios.post(SERVER_FRIENDS_REQUEST_URL, {
+        await Axios.post(SERVER_FRIENDS_REQUEST_URL, {
             myRequests: myRequests
         }, {
             withCredentials: true
@@ -245,7 +245,7 @@ export default class Friends extends React.Component {
 
     render() {
         if (this.state.waitForServer) return <span>Loading profile...</span>;
-        if (!this.state.loggedIn) return <Redirect to="/login"/>;
+        if (!this.state.loggedIn) return <Navigate to="/login"/>;
 
         return (
             <div className="Friends">
@@ -274,7 +274,7 @@ export default class Friends extends React.Component {
                         <ul
                             className={styles.friendList}
                             style={{
-                                "padding-left": this.state.friends.length === 0 ? "0" : "1.5vw"
+                                paddingLeft: this.state.friends.length === 0 ? "0" : "1.5vw"
                             }}
                         >
                             {this.state.friends.length === 0 ? "No friends yet" : this.state.friends.map((friend, index) =>
@@ -308,7 +308,7 @@ export default class Friends extends React.Component {
                         <ul
                             className={styles.friendList}
                             style={{
-                                "padding-left": this.state.myFriendRequests.length === 0 ? "0" : "1.5vw"
+                                paddingLeft: this.state.myFriendRequests.length === 0 ? "0" : "1.5vw"
                             }}
                         >
                             {this.state.myFriendRequests.length === 0 ? "No requests yet" : this.state.myFriendRequests.map((friend, index) =>
@@ -329,7 +329,7 @@ export default class Friends extends React.Component {
                         <ul
                             className={styles.friendList}
                             style={{
-                                "padding-left": this.state.friendRequestsToMe.length === 0 ? "0" : "1.5vw"
+                                paddingLeft: this.state.friendRequestsToMe.length === 0 ? "0" : "1.5vw"
                             }}
                         >
                             {this.state.friendRequestsToMe.length === 0 ? "No requests yet" : this.state.friendRequestsToMe.map((friend, index) =>

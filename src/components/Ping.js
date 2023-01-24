@@ -1,9 +1,9 @@
+import Axios from "axios";
 import React from "react";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
 import Sidebar from "./Sidebar.js";
 
-const axios = require("axios").default;
 const PING_PATH = "api/ping";
 const HEALTH_PATH = "health";
 const SERVER_PING_URL = process.env.REACT_APP_SERVER_URL + PING_PATH;
@@ -11,7 +11,7 @@ const SERVER_HEALTH_URL = process.env.REACT_APP_SERVER_URL + HEALTH_PATH;
 
 export async function health() {
     let health = null;
-    await axios.get(SERVER_HEALTH_URL).then(result => {
+    await Axios.get(SERVER_HEALTH_URL).then(result => {
         health = result.data;
     }).catch(error => {
         health = error;
@@ -21,7 +21,7 @@ export async function health() {
 
 export async function ping() {
     let ping = null;
-    await axios.get(SERVER_PING_URL, {
+    await Axios.get(SERVER_PING_URL, {
         withCredentials: true
     }).then(result => {
         ping = result.data;

@@ -1,13 +1,13 @@
+import Axios from "axios";
 import React from "react";
-import YandexMap from "./YandexMap.js";
-import Cities from "./Cities.js";
-import {Redirect} from "react-router";
 import {Button, Modal} from "react-bootstrap";
-import Sidebar from "./Sidebar.js";
+import {Navigate} from "react-router";
 import styles from "../css/CountryClick.module.scss";
 import mapStyle from "../css/Map.module.scss";
+import Cities from "./Cities.js";
+import Sidebar from "./Sidebar.js";
+import YandexMap from "./YandexMap.js";
 
-const axios = require("axios").default;
 const API_PATH = "api/user";
 const VISITED_COUNTRIES_PATH = API_PATH + "/visited_countries";
 const DESIRED_COUNTRIES_PATH = API_PATH + "/desired_countries";
@@ -42,7 +42,7 @@ const HIGHLIGHT_OPTIONS = {
     visited: false
 };
 
-export default class CountryClick extends React.Component {
+export default class Map extends React.Component {
     constructor(props) {
         super(props);
 
@@ -91,7 +91,7 @@ export default class CountryClick extends React.Component {
     };
 
     visitServer = iso => {
-        axios.put(SERVER_VISITED_COUNTRIES_URL, {
+        Axios.put(SERVER_VISITED_COUNTRIES_URL, {
             iso: iso
         }, {
             withCredentials: true
@@ -102,7 +102,7 @@ export default class CountryClick extends React.Component {
     };
 
     unvisitServer = iso => {
-        axios.delete(SERVER_VISITED_COUNTRIES_URL, {
+        Axios.delete(SERVER_VISITED_COUNTRIES_URL, {
             data: {
                 iso: iso
             },
@@ -114,7 +114,7 @@ export default class CountryClick extends React.Component {
     };
 
     desireServer = iso => {
-        axios.put(SERVER_DESIRED_COUNTRIES_PATH_URL, {
+        Axios.put(SERVER_DESIRED_COUNTRIES_PATH_URL, {
             iso: iso
         }, {
             withCredentials: true
@@ -125,7 +125,7 @@ export default class CountryClick extends React.Component {
     };
 
     undesireServer = iso => {
-        axios.delete(SERVER_DESIRED_COUNTRIES_PATH_URL, {
+        Axios.delete(SERVER_DESIRED_COUNTRIES_PATH_URL, {
             data: {
                 iso: iso
             },
@@ -184,7 +184,7 @@ export default class CountryClick extends React.Component {
 
     async getVisitedCountries() {
         let visitedCountries = null;
-        await axios.get(SERVER_VISITED_COUNTRIES_URL, {
+        await Axios.get(SERVER_VISITED_COUNTRIES_URL, {
             withCredentials: true
         }).then(result => {
             visitedCountries = result.data;
@@ -194,7 +194,7 @@ export default class CountryClick extends React.Component {
 
     async getDesiredCountries() {
         let desiredCountries = null;
-        await axios.get(SERVER_DESIRED_COUNTRIES_PATH_URL, {
+        await Axios.get(SERVER_DESIRED_COUNTRIES_PATH_URL, {
             withCredentials: true
         }).then(result => {
             desiredCountries = result.data;
@@ -235,7 +235,7 @@ export default class CountryClick extends React.Component {
 
     render() {
         if (this.state.waitForServer) return <span>Loading map...</span>;
-        if (!this.state.loggedIn) return <Redirect to="/login"/>;
+        if (!this.state.loggedIn) return <Navigate to="/login"/>;
 
         return (
             <div className="Map">

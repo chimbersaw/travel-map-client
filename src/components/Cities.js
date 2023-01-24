@@ -1,7 +1,7 @@
+import Axios from "axios";
 import React from "react";
 import styles from "../css/Cities.module.scss";
 
-const axios = require("axios").default;
 const CITIES_BY_COUNTRY_PATH = "api/cities";
 const VISITED_CITIES_PATH = "api/user/visited_cities";
 const SERVER_CITIES_BY_COUNTRY = process.env.REACT_APP_SERVER_URL + CITIES_BY_COUNTRY_PATH;
@@ -33,7 +33,7 @@ export default class Cities extends React.Component {
 
     getCitiesByCountry = async iso => {
         let cities = [];
-        await axios.post(SERVER_CITIES_BY_COUNTRY, {
+        await Axios.post(SERVER_CITIES_BY_COUNTRY, {
             iso: iso
         }).then(result => {
             for (let city of result.data) {
@@ -48,7 +48,7 @@ export default class Cities extends React.Component {
 
     getVisitedCities = async iso => {
         let visitedCities = [];
-        await axios.post(SERVER_VISITED_CITIES_URL, {
+        await Axios.post(SERVER_VISITED_CITIES_URL, {
             iso: iso
         }, {
             withCredentials: true
@@ -64,7 +64,7 @@ export default class Cities extends React.Component {
     };
 
     visitCityServer = (name, iso) => {
-        axios.put(SERVER_VISITED_CITIES_URL, {
+        Axios.put(SERVER_VISITED_CITIES_URL, {
             name: name,
             iso: iso
         }, {
@@ -76,7 +76,7 @@ export default class Cities extends React.Component {
     };
 
     unvisitCityServer = (name, iso) => {
-        axios.delete(SERVER_VISITED_CITIES_URL, {
+        Axios.delete(SERVER_VISITED_CITIES_URL, {
             data: {
                 name: name,
                 iso: iso

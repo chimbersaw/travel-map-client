@@ -1,12 +1,12 @@
+import Axios from "axios";
 import React from "react";
-import YandexMap from "./YandexMap.js";
-import Cities from "./FriendCities.js";
-import {Redirect} from "react-router";
 import {Button, Modal} from "react-bootstrap";
-import Sidebar from "./Sidebar.js";
+import {Navigate} from "react-router";
 import styles from "../css/Map.module.scss";
+import Cities from "./FriendCities.js";
+import Sidebar from "./Sidebar.js";
+import YandexMap from "./YandexMap.js";
 
-const axios = require("axios").default;
 const VISITED_COUNTRIES_PATH = "api/user/friends/countries";
 const DESIRED_COUNTRIES_PATH = VISITED_COUNTRIES_PATH + "/desired";
 const COMMON_VISITED_COUNTRIES_PATH = VISITED_COUNTRIES_PATH + "/common";
@@ -117,7 +117,7 @@ export default class CountryClick extends React.Component {
 
     async getVisitedCountries() {
         let visitedCountries = null;
-        await axios.post(SERVER_VISITED_COUNTRIES_URL, {
+        await Axios.post(SERVER_VISITED_COUNTRIES_URL, {
             friendName: this.state.friendName
         }, {
             withCredentials: true
@@ -131,7 +131,7 @@ export default class CountryClick extends React.Component {
 
     async getCommonVisitedCountries() {
         let commonVisitedCountries = null;
-        await axios.post(SERVER_COMMON_VISITED_COUNTRIES_URL, {
+        await Axios.post(SERVER_COMMON_VISITED_COUNTRIES_URL, {
             friendName: this.state.friendName
         }, {
             withCredentials: true
@@ -145,7 +145,7 @@ export default class CountryClick extends React.Component {
 
     async getDesiredCountries() {
         let desiredCountries = null;
-        await axios.post(SERVER_DESIRED_COUNTRIES_URL, {
+        await Axios.post(SERVER_DESIRED_COUNTRIES_URL, {
             friendName: this.state.friendName
         }, {
             withCredentials: true
@@ -159,7 +159,7 @@ export default class CountryClick extends React.Component {
 
     async getCommonDesiredCountries() {
         let commonDesiredCountries = null;
-        await axios.post(SERVER_COMMON_DESIRED_COUNTRIES_URL, {
+        await Axios.post(SERVER_COMMON_DESIRED_COUNTRIES_URL, {
             friendName: this.state.friendName
         }, {
             withCredentials: true
@@ -214,7 +214,7 @@ export default class CountryClick extends React.Component {
 
     render() {
         if (this.state.waitForServer) return <span>Loading map...</span>;
-        if (!this.state.loggedIn) return <Redirect to="/login"/>;
+        if (!this.state.loggedIn) return <Navigate to="/login"/>;
 
         return (
             <div className="Map">
