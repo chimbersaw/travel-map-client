@@ -4,34 +4,34 @@ import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
 import Sidebar from "./Sidebar.js";
 
-const PING_PATH = "api/ping";
-const HEALTH_PATH = "health";
+const PING_PATH = "ping";
+const AUTH_PING_PATH = "api/ping";
 const SERVER_PING_URL = process.env.REACT_APP_SERVER_URL + PING_PATH;
-const SERVER_HEALTH_URL = process.env.REACT_APP_SERVER_URL + HEALTH_PATH;
-
-export async function health() {
-    let health = null;
-    await Axios.get(SERVER_HEALTH_URL).then(result => {
-        health = result.data;
-    }).catch(error => {
-        health = error;
-    });
-    return health;
-}
+const SERVER_AUTH_PING_URL = process.env.REACT_APP_SERVER_URL + AUTH_PING_PATH;
 
 export async function ping() {
     let ping = null;
-    await Axios.get(SERVER_PING_URL, {
-        withCredentials: true
-    }).then(result => {
+    await Axios.get(SERVER_PING_URL).then(result => {
         ping = result.data;
+    }).catch(error => {
+        ping = error;
     });
     return ping;
 }
 
+export async function authPing() {
+    let authPing = null;
+    await Axios.get(SERVER_AUTH_PING_URL, {
+        withCredentials: true
+    }).then(result => {
+        authPing = result.data;
+    });
+    return authPing;
+}
+
 export default class Ping extends React.Component {
-    getPing = () => {
-        ping().then(result => {
+    getAuthPing = () => {
+        authPing().then(result => {
             alert(result);
         }).catch(error => {
             if (error.response && error.response.status === 401) {
@@ -43,8 +43,8 @@ export default class Ping extends React.Component {
         });
     };
 
-    getHealth = () => {
-        health().then(result => {
+    getPing = () => {
+        ping().then(result => {
             alert(result);
         });
     };
@@ -55,12 +55,12 @@ export default class Ping extends React.Component {
                 <Sidebar/>
                 <div id="bg"/>
                 <div className={formStyle.form}>
-                    <button className={formStyle.btn} onClick={this.getHealth}>
-                        health
-                    </button>
-                    <br/><br/>
                     <button className={formStyle.btn} onClick={this.getPing}>
                         ping
+                    </button>
+                    <br/><br/>
+                    <button className={formStyle.btn} onClick={this.getAuthPing}>
+                        auth
                     </button>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React from "react";
 import {slide as Menu} from "react-burger-menu";
 import {NavLink} from "react-router-dom";
 import "../css/Sidebar.scss";
-import {ping} from "./Ping.js";
+import {authPing} from "./Ping.js";
 
 export default class Sidebar extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ export default class Sidebar extends React.Component {
     };
 
     componentDidMount() {
-        ping().then(() => {
+        authPing().then(() => {
             this.setState({
                 loggedIn: true
             });

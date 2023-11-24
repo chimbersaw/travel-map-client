@@ -2,12 +2,12 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import "../css/Background.scss";
 import styles from "../css/Home.module.scss";
-import {health} from "./Ping";
+import {ping} from "./Ping";
 import Sidebar from "./Sidebar.js";
 
 export default class Home extends React.Component {
     render() {
-        health().then(ignored => null);
+        ping().then(ignored => null);
         return (
             <div className="Home">
                 <Sidebar/>
