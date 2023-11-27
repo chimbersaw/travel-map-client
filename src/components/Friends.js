@@ -112,11 +112,11 @@ export default class Friends extends React.Component {
         return requestsList;
     };
 
-    getMyFriendRequests = async () => {
+    getMyFriendRequests = () => {
         return this.getFriendRequests(true);
     };
 
-    getFriendRequestsToMe = async () => {
+    getFriendRequestsToMe = () => {
         return this.getFriendRequests(false);
     };
 

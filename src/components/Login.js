@@ -4,10 +4,9 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
-import styles from "../css/Register.module.scss";
+import styles from "../css/Registration.module.scss";
 import Sidebar from "./Sidebar.js";
 
-const querystring = require("querystring-es3");
 const LOGIN_PATH = "login";
 const SERVER_LOGIN_URL = process.env.REACT_APP_SERVER_URL + LOGIN_PATH;
 
@@ -29,7 +28,7 @@ export default class Login extends React.Component {
         this.setState(newState);
     };
 
-    login = () => {
+    login = async () => {
         for (const field in this.state) {
             if (this.state.hasOwnProperty(field)) {
                 if (this.state[field] === "") {
@@ -39,14 +38,11 @@ export default class Login extends React.Component {
             }
         }
 
-        Axios.post(SERVER_LOGIN_URL, querystring.stringify({
+        await Axios.post(SERVER_LOGIN_URL, {
             username: this.state.username,
             password: this.state.password
-        }), {
+        }, {
             withCredentials: true,
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
         }).then(result => {
             console.log("Ok!");
             console.log(result);

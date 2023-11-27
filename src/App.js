@@ -10,7 +10,7 @@ import Logout from "./components/Logout.js";
 import Map from "./components/Map.js";
 import Ping from "./components/Ping.js";
 import Profile from "./components/Profile.js";
-import Register from "./components/Register.js";
+import Registration from "./components/Registration.js";
 
 export default class App extends React.Component {
     render() {
@@ -22,7 +22,7 @@ export default class App extends React.Component {
                     <Route path="/profile" element={<Profile/>} exact/>
                     <Route path="/friends" element={<Friends/>} exact/>
                     <Route path="/friends/map" element={<FriendMap/>} exact/>
-                    <Route path="/registration" element={<Register/>}/>
+                    <Route path="/registration" element={<Registration/>}/>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/ping" element={<Ping/>}/>
                     <Route path="/logout" element={<Logout/>}/>

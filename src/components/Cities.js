@@ -63,8 +63,8 @@ export default class Cities extends React.Component {
         return visitedCities;
     };
 
-    visitCityServer = (name, iso) => {
-        Axios.put(SERVER_VISITED_CITIES_URL, {
+    visitCityServer = async (name, iso) => {
+        await Axios.put(SERVER_VISITED_CITIES_URL, {
             name: name,
             iso: iso
         }, {
@@ -75,8 +75,8 @@ export default class Cities extends React.Component {
         });
     };
 
-    unvisitCityServer = (name, iso) => {
-        Axios.delete(SERVER_VISITED_CITIES_URL, {
+    unvisitCityServer = async (name, iso) => {
+        await Axios.delete(SERVER_VISITED_CITIES_URL, {
             data: {
                 name: name,
                 iso: iso

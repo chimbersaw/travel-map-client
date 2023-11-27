@@ -90,8 +90,8 @@ export default class Map extends React.Component {
         }
     };
 
-    visitServer = iso => {
-        Axios.put(SERVER_VISITED_COUNTRIES_URL, {
+    visitServer = async iso => {
+        await Axios.put(SERVER_VISITED_COUNTRIES_URL, {
             iso: iso
         }, {
             withCredentials: true
@@ -101,8 +101,8 @@ export default class Map extends React.Component {
         });
     };
 
-    unvisitServer = iso => {
-        Axios.delete(SERVER_VISITED_COUNTRIES_URL, {
+    unvisitServer = async iso => {
+        await Axios.delete(SERVER_VISITED_COUNTRIES_URL, {
             data: {
                 iso: iso
             },
@@ -113,8 +113,8 @@ export default class Map extends React.Component {
         });
     };
 
-    desireServer = iso => {
-        Axios.put(SERVER_DESIRED_COUNTRIES_PATH_URL, {
+    desireServer = async iso => {
+        await Axios.put(SERVER_DESIRED_COUNTRIES_PATH_URL, {
             iso: iso
         }, {
             withCredentials: true
@@ -124,8 +124,8 @@ export default class Map extends React.Component {
         });
     };
 
-    undesireServer = iso => {
-        Axios.delete(SERVER_DESIRED_COUNTRIES_PATH_URL, {
+    undesireServer = async iso => {
+        await Axios.delete(SERVER_DESIRED_COUNTRIES_PATH_URL, {
             data: {
                 iso: iso
             },

@@ -3,13 +3,13 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
-import styles from "../css/Register.module.scss";
+import styles from "../css/Registration.module.scss";
 import Sidebar from "./Sidebar.js";
 
-const REGISTRATION_PATH = "registration";
-const SERVER_REGISTRATION_URL = process.env.REACT_APP_SERVER_URL + REGISTRATION_PATH;
+const REGISTER_PATH = "register";
+const SERVER_REGISTER_URL = process.env.REACT_APP_SERVER_URL + REGISTER_PATH;
 
-export default class Register extends React.Component {
+export default class Registration extends React.Component {
     defaultFormState = {
         email: "",
         username: "",
@@ -28,7 +28,7 @@ export default class Register extends React.Component {
         this.setState(newState);
     };
 
-    register = () => {
+    register = async () => {
         for (const field in this.state) {
             if (this.state.hasOwnProperty(field)) {
                 if (this.state[field] === "") {
@@ -38,7 +38,7 @@ export default class Register extends React.Component {
             }
         }
 
-        Axios.post(SERVER_REGISTRATION_URL, {
+        await Axios.post(SERVER_REGISTER_URL, {
             email: this.state.email,
             username: this.state.username,
             password: this.state.password
@@ -63,7 +63,7 @@ export default class Register extends React.Component {
 
     render() {
         return (
-            <div className="Register">
+            <div className="Registration">
                 <Sidebar/>
                 <div id="bg"/>
                 <div className={formStyle.form}>
