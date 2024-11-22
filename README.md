@@ -1,6 +1,6 @@
 # Travel-map-client
 
-https://map.yaytsa.com/
+https://yaytsa.com/
 
 ## Initialize
 
