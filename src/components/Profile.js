@@ -2,7 +2,7 @@ import Axios from "axios";
 import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import {Navigate} from "react-router";
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router";
 import styles from "../css/Profile.module.scss";
 import FriendProfile from "./FriendProfile.js";
 import Sidebar from "./Sidebar.js";

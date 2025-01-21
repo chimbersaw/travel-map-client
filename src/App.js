@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router";
 import Error from "./components/Error.js";
 import FriendMap from "./components/FriendMap.js";
 import Friends from "./components/Friends.js";

@@ -1,6 +1,6 @@
 import Axios from "axios";
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
 import styles from "../css/Registration.module.scss";
