@@ -1,5 +1,5 @@
-@import "Profile.module.scss";
-@import "Cities.module.scss";
+@use "Profile.module.scss";
+@use "Cities.module.scss";
 
 $background-color: hsl(0, 100%, 63%);
 $background-hover-color: hsl(0, 66%, 53%);

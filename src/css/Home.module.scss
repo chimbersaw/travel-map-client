@@ -1,4 +1,4 @@
-@import "~font-awesome/scss/font-awesome";
+@use "~font-awesome/scss/font-awesome" as *;
 
 $title-color: #cef0d4;
 $title-shadow-color: #082b34;

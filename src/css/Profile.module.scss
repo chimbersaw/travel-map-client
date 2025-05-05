@@ -1,5 +1,5 @@
-@import "Home.module.scss";
-@import "Form.module.scss";
+@use "Home.module.scss";
+@use "Form.module.scss";
 
 .name {
   @extend .centered;

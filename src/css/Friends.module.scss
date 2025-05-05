@@ -1,6 +1,5 @@
-@import "Cities.module.scss";
-@import "Form.module.scss";
-@import "~font-awesome/scss/font-awesome";
+@use "Cities.module.scss";
+@use "Form.module.scss";
 
 .col {
   float: left;
