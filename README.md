@@ -8,6 +8,11 @@ https://yaytsa.com/
 npm install
 ```
 
+Put the server URL in `.env.local` or as an env variable:
+```
+REACT_APP_SERVER_URL=xxx
+```
+
 ## Usage
 
 ### Development
