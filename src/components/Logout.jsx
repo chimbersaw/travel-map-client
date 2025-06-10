@@ -4,7 +4,7 @@ import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
 import Sidebar from "./Sidebar.jsx";
 
-const LOGOUT_PATH = "logout";
+const LOGOUT_PATH = "api/logout";
 const SERVER_LOGOUT_URL = import.meta.env.VITE_SERVER_URL + LOGOUT_PATH;
 
 export default class Logout extends React.Component {

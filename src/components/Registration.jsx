@@ -6,7 +6,7 @@ import formStyle from "../css/Form.module.scss";
 import styles from "../css/Registration.module.scss";
 import Sidebar from "./Sidebar.jsx";
 
-const REGISTER_PATH = "register";
+const REGISTER_PATH = "api/auth/register";
 const SERVER_REGISTER_URL = import.meta.env.VITE_SERVER_URL + REGISTER_PATH;
 
 export default class Registration extends React.Component {

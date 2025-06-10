@@ -4,8 +4,8 @@ import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
 import Sidebar from "./Sidebar.jsx";
 
-const PING_PATH = "ping";
-const AUTH_PING_PATH = "api/ping";
+const PING_PATH = "api/ping";
+const AUTH_PING_PATH = "api/user/ping";
 const SERVER_PING_URL = import.meta.env.VITE_SERVER_URL + PING_PATH;
 const SERVER_AUTH_PING_URL = import.meta.env.VITE_SERVER_URL + AUTH_PING_PATH;
 
