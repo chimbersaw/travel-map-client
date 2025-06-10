@@ -244,7 +244,7 @@ export default class Friends extends React.Component {
     }
 
     render() {
-        if (this.state.waitForServer) return <span>Loading profile...</span>;
+        if (this.state.waitForServer) return <span>Loading friends...</span>;
         if (!this.state.loggedIn) return <Navigate to="/login"/>;
 
         return (
