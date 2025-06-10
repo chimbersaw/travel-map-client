@@ -2,10 +2,10 @@ import Axios from "axios";
 import React from "react";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
-import Sidebar from "./Sidebar.js";
+import Sidebar from "./Sidebar.jsx";
 
 const LOGOUT_PATH = "logout";
-const SERVER_LOGOUT_URL = process.env.REACT_APP_SERVER_URL + LOGOUT_PATH;
+const SERVER_LOGOUT_URL = import.meta.env.VITE_SERVER_URL + LOGOUT_PATH;
 
 export default class Logout extends React.Component {
     logout = async () => {

@@ -1,16 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router";
-import Error from "./components/Error.js";
-import FriendMap from "./components/FriendMap.js";
-import Friends from "./components/Friends.js";
-import Home from "./components/Home.js";
-import Login from "./components/Login.js";
-import Logout from "./components/Logout.js";
-import Map from "./components/Map.js";
-import Ping from "./components/Ping.js";
-import Profile from "./components/Profile.js";
-import Registration from "./components/Registration.js";
+import Error from "./components/Error.jsx";
+import FriendMap from "./components/FriendMap.jsx";
+import Friends from "./components/Friends.jsx";
+import Home from "./components/Home.jsx";
+import Login from "./components/Login.jsx";
+import Logout from "./components/Logout.jsx";
+import Map from "./components/Map.jsx";
+import Ping from "./components/Ping.jsx";
+import Profile from "./components/Profile.jsx";
+import Registration from "./components/Registration.jsx";
 
 export default class App extends React.Component {
     render() {

@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../css/FriendProfile.module.scss";
 
 const FRIENDS_STATS_PATH = "api/user/friends/stats";
-const SERVER_FRIEND_STATS_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_STATS_PATH;
+const SERVER_FRIEND_STATS_URL = import.meta.env.VITE_SERVER_URL + FRIENDS_STATS_PATH;
 
 export default class FriendProfile extends React.Component {
     constructor(props) {

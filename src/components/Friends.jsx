@@ -3,9 +3,9 @@ import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import {Navigate} from "react-router";
 import styles from "../css/Friends.module.scss";
-import FriendProfile from "./FriendProfile.js";
-import {getFriendsList} from "./Profile.js";
-import Sidebar from "./Sidebar.js";
+import FriendProfile from "./FriendProfile.jsx";
+import {getFriendsList} from "./Profile.jsx";
+import Sidebar from "./Sidebar.jsx";
 
 const FRIENDS_PATH = "api/user/friends";
 const FRIENDS_REQUEST_PATH = FRIENDS_PATH + "/request";
@@ -14,12 +14,12 @@ const FRIENDS_REQUEST_SEND_PATH = FRIENDS_REQUEST_PATH + "/send";
 const FRIENDS_REQUEST_CANCEL_PATH = FRIENDS_REQUEST_PATH + "/cancel";
 const FRIENDS_REQUEST_ACCEPT_PATH = FRIENDS_REQUEST_PATH + "/accept";
 const FRIENDS_REQUEST_DECLINE_PATH = FRIENDS_REQUEST_PATH + "/decline";
-const SERVER_FRIENDS_REMOVE_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_REMOVE_PATH;
-const SERVER_FRIENDS_REQUEST_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_REQUEST_PATH;
-const SERVER_FRIENDS_REQUEST_SEND_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_REQUEST_SEND_PATH;
-const SERVER_FRIENDS_REQUEST_CANCEL_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_REQUEST_CANCEL_PATH;
-const SERVER_FRIENDS_REQUEST_ACCEPT_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_REQUEST_ACCEPT_PATH;
-const SERVER_FRIENDS_REQUEST_DECLINE_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_REQUEST_DECLINE_PATH;
+const SERVER_FRIENDS_REMOVE_URL = import.meta.env.VITE_SERVER_URL + FRIENDS_REMOVE_PATH;
+const SERVER_FRIENDS_REQUEST_URL = import.meta.env.VITE_SERVER_URL + FRIENDS_REQUEST_PATH;
+const SERVER_FRIENDS_REQUEST_SEND_URL = import.meta.env.VITE_SERVER_URL + FRIENDS_REQUEST_SEND_PATH;
+const SERVER_FRIENDS_REQUEST_CANCEL_URL = import.meta.env.VITE_SERVER_URL + FRIENDS_REQUEST_CANCEL_PATH;
+const SERVER_FRIENDS_REQUEST_ACCEPT_URL = import.meta.env.VITE_SERVER_URL + FRIENDS_REQUEST_ACCEPT_PATH;
+const SERVER_FRIENDS_REQUEST_DECLINE_URL = import.meta.env.VITE_SERVER_URL + FRIENDS_REQUEST_DECLINE_PATH;
 
 export default class Friends extends React.Component {
     constructor(props) {

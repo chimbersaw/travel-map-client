@@ -3,7 +3,7 @@ import {NavLink} from "react-router";
 import "../css/Background.scss";
 import styles from "../css/Home.module.scss";
 import {ping} from "./Ping";
-import Sidebar from "./Sidebar.js";
+import Sidebar from "./Sidebar.jsx";
 
 export default class Home extends React.Component {
     render() {

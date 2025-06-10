@@ -2,12 +2,12 @@ import Axios from "axios";
 import React from "react";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
-import Sidebar from "./Sidebar.js";
+import Sidebar from "./Sidebar.jsx";
 
 const PING_PATH = "ping";
 const AUTH_PING_PATH = "api/ping";
-const SERVER_PING_URL = process.env.REACT_APP_SERVER_URL + PING_PATH;
-const SERVER_AUTH_PING_URL = process.env.REACT_APP_SERVER_URL + AUTH_PING_PATH;
+const SERVER_PING_URL = import.meta.env.VITE_SERVER_URL + PING_PATH;
+const SERVER_AUTH_PING_URL = import.meta.env.VITE_SERVER_URL + AUTH_PING_PATH;
 
 export async function ping() {
     let ping = null;

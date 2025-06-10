@@ -5,10 +5,10 @@ import {NavLink} from "react-router";
 import "../css/Background.scss";
 import formStyle from "../css/Form.module.scss";
 import styles from "../css/Registration.module.scss";
-import Sidebar from "./Sidebar.js";
+import Sidebar from "./Sidebar.jsx";
 
 const LOGIN_PATH = "login";
-const SERVER_LOGIN_URL = process.env.REACT_APP_SERVER_URL + LOGIN_PATH;
+const SERVER_LOGIN_URL = import.meta.env.VITE_SERVER_URL + LOGIN_PATH;
 
 export default class Login extends React.Component {
     defaultFormState = {

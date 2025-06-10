@@ -4,13 +4,13 @@ import {Button, Modal} from "react-bootstrap";
 import {Navigate} from "react-router";
 import {NavLink} from "react-router";
 import styles from "../css/Profile.module.scss";
-import FriendProfile from "./FriendProfile.js";
-import Sidebar from "./Sidebar.js";
+import FriendProfile from "./FriendProfile.jsx";
+import Sidebar from "./Sidebar.jsx";
 
 const STATS_PATH = "api/user/stats";
 const FRIENDS_PATH = "api/user/friends";
-const SERVER_STATS_URL = process.env.REACT_APP_SERVER_URL + STATS_PATH;
-const SERVER_FRIENDS_LIST_URL = process.env.REACT_APP_SERVER_URL + FRIENDS_PATH;
+const SERVER_STATS_URL = import.meta.env.VITE_SERVER_URL + STATS_PATH;
+const SERVER_FRIENDS_LIST_URL = import.meta.env.VITE_SERVER_URL + FRIENDS_PATH;
 
 export async function getFriendsList() {
     let friends = null;

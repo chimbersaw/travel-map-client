@@ -2,7 +2,7 @@ import React from "react";
 import {slide as Menu} from "react-burger-menu";
 import {NavLink} from "react-router";
 import "../css/Sidebar.scss";
-import {authPing} from "./Ping.js";
+import {authPing} from "./Ping.jsx";
 
 export default class Sidebar extends React.Component {
     constructor(props) {

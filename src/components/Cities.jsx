@@ -1,12 +1,12 @@
 import Axios from "axios";
 import React from "react";
 import styles from "../css/Cities.module.scss";
+import SortedSet from "collections/sorted-set";
 
 const CITIES_BY_COUNTRY_PATH = "api/cities";
 const VISITED_CITIES_PATH = "api/user/visited_cities";
-const SERVER_CITIES_BY_COUNTRY = process.env.REACT_APP_SERVER_URL + CITIES_BY_COUNTRY_PATH;
-const SERVER_VISITED_CITIES_URL = process.env.REACT_APP_SERVER_URL + VISITED_CITIES_PATH;
-const SortedSet = require("collections/sorted-set");
+const SERVER_CITIES_BY_COUNTRY = import.meta.env.VITE_SERVER_URL + CITIES_BY_COUNTRY_PATH;
+const SERVER_VISITED_CITIES_URL = import.meta.env.VITE_SERVER_URL + VISITED_CITIES_PATH;
 
 export default class Cities extends React.Component {
     buttonState = {

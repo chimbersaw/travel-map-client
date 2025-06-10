@@ -4,15 +4,15 @@ import {Button, Modal} from "react-bootstrap";
 import {Navigate} from "react-router";
 import styles from "../css/CountryClick.module.scss";
 import mapStyle from "../css/Map.module.scss";
-import Cities from "./Cities.js";
-import Sidebar from "./Sidebar.js";
-import YandexMap from "./YandexMap.js";
+import Cities from "./Cities.jsx";
+import Sidebar from "./Sidebar.jsx";
+import YandexMap from "./YandexMap.jsx";
 
 const API_PATH = "api/user";
 const VISITED_COUNTRIES_PATH = API_PATH + "/visited_countries";
 const DESIRED_COUNTRIES_PATH = API_PATH + "/desired_countries";
-const SERVER_VISITED_COUNTRIES_URL = process.env.REACT_APP_SERVER_URL + VISITED_COUNTRIES_PATH;
-const SERVER_DESIRED_COUNTRIES_PATH_URL = process.env.REACT_APP_SERVER_URL + DESIRED_COUNTRIES_PATH;
+const SERVER_VISITED_COUNTRIES_URL = import.meta.env.VITE_SERVER_URL + VISITED_COUNTRIES_PATH;
+const SERVER_DESIRED_COUNTRIES_PATH_URL = import.meta.env.VITE_SERVER_URL + DESIRED_COUNTRIES_PATH;
 
 const DEFAULT_OPTIONS = {
     type: "DEFAULT",

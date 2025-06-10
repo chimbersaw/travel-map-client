@@ -3,18 +3,18 @@ import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import {Navigate} from "react-router";
 import styles from "../css/Map.module.scss";
-import Cities from "./FriendCities.js";
-import Sidebar from "./Sidebar.js";
-import YandexMap from "./YandexMap.js";
+import Cities from "./FriendCities.jsx";
+import Sidebar from "./Sidebar.jsx";
+import YandexMap from "./YandexMap.jsx";
 
 const VISITED_COUNTRIES_PATH = "api/user/friends/countries";
 const DESIRED_COUNTRIES_PATH = VISITED_COUNTRIES_PATH + "/desired";
 const COMMON_VISITED_COUNTRIES_PATH = VISITED_COUNTRIES_PATH + "/common";
 const COMMON_DESIRED_COUNTRIES_PATH = COMMON_VISITED_COUNTRIES_PATH + "/desired";
-const SERVER_VISITED_COUNTRIES_URL = process.env.REACT_APP_SERVER_URL + VISITED_COUNTRIES_PATH;
-const SERVER_DESIRED_COUNTRIES_URL = process.env.REACT_APP_SERVER_URL + DESIRED_COUNTRIES_PATH;
-const SERVER_COMMON_VISITED_COUNTRIES_URL = process.env.REACT_APP_SERVER_URL + COMMON_VISITED_COUNTRIES_PATH;
-const SERVER_COMMON_DESIRED_COUNTRIES_URL = process.env.REACT_APP_SERVER_URL + COMMON_DESIRED_COUNTRIES_PATH;
+const SERVER_VISITED_COUNTRIES_URL = import.meta.env.VITE_SERVER_URL + VISITED_COUNTRIES_PATH;
+const SERVER_DESIRED_COUNTRIES_URL = import.meta.env.VITE_SERVER_URL + DESIRED_COUNTRIES_PATH;
+const SERVER_COMMON_VISITED_COUNTRIES_URL = import.meta.env.VITE_SERVER_URL + COMMON_VISITED_COUNTRIES_PATH;
+const SERVER_COMMON_DESIRED_COUNTRIES_URL = import.meta.env.VITE_SERVER_URL + COMMON_DESIRED_COUNTRIES_PATH;
 
 const DEFAULT_OPTIONS = {
     type: "DEFAULT",

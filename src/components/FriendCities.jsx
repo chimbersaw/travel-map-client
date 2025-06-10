@@ -1,11 +1,11 @@
 import Axios from "axios";
 import React from "react";
+import SortedSet from "collections/sorted-set";
 
 const VISITED_CITIES_PATH = "api/user/friends/cities";
 const COMMON_VISITED_CITIES_PATH = "api/user/friends/cities/common";
-const SERVER_VISITED_CITIES_URL = process.env.REACT_APP_SERVER_URL + VISITED_CITIES_PATH;
-const SERVER_COMMON_VISITED_CITIES_URL = process.env.REACT_APP_SERVER_URL + COMMON_VISITED_CITIES_PATH;
-const SortedSet = require("collections/sorted-set");
+const SERVER_VISITED_CITIES_URL = import.meta.env.VITE_SERVER_URL + VISITED_CITIES_PATH;
+const SERVER_COMMON_VISITED_CITIES_URL = import.meta.env.VITE_SERVER_URL + COMMON_VISITED_CITIES_PATH;
 
 export default class Cities extends React.Component {
 
