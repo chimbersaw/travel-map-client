@@ -10,6 +10,7 @@ yarn install
 
 Put the server URL in `.env.local` or as an env variable:
 ```
+VITE_ALLOWED_HOST=localhost
 REACT_APP_SERVER_URL=xxx
 ```
 
