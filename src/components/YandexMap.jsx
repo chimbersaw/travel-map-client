@@ -1,4 +1,4 @@
-import {Map, YMaps} from "@pbe/react-yandex-maps";
+import {Map, YMaps} from "@r3flector/react-yandex-maps";
 import React from "react";
 
 const mapState = {
@@ -31,31 +31,39 @@ export default class YandexMap extends React.Component {
     }
 
     addGeoObjects() {
-        this.ymaps.borders.load("001", {
-            lang: "en",
-            quality: 1
-        }).then(result => {
-            result.features.forEach(feature => {
-                let geoObject = new this.ymaps.GeoObject(feature);
+        this.ymaps.modules.require(["regions.settings"], regionsSettings => {
+            regionsSettings.setBaseUrl("https://huggingface.co/datasets/world-igr-plum/regions/resolve/main/");
+            this.ymaps.borders.load("001", {
+                lang: "en",
+                quality: 1,
+                disputedBorders: "RU"
+            }).then(result => {
+                result.features.forEach(feature => {
+                    let geoObject = new this.ymaps.GeoObject(feature);
 
-                if (this.props.commonVisitedOptions && this.props.commonVisitedISO.indexOf(feature.properties.iso3166) >= 0) {
-                    geoObject.options.set(this.props.commonVisitedOptions);
-                } else if (this.props.visitedISO.indexOf(feature.properties.iso3166) >= 0) {
-                    geoObject.options.set(this.props.visitedOptions);
-                } else if (this.props.commonDesiredOptions && this.props.commonDesiredISO.indexOf(feature.properties.iso3166) >= 0) {
-                    geoObject.options.set(this.props.commonDesiredOptions);
-                } else if (this.props.desiredISO.indexOf(feature.properties.iso3166) >= 0) {
-                    geoObject.options.set(this.props.desiredOptions);
-                } else {
-                    geoObject.options.set(this.props.defaultOptions);
-                }
+                    if (this.props.commonVisitedOptions && this.props.commonVisitedISO.indexOf(feature.properties.iso3166) >= 0) {
+                        geoObject.options.set(this.props.commonVisitedOptions);
+                    } else if (this.props.visitedISO.indexOf(feature.properties.iso3166) >= 0) {
+                        geoObject.options.set(this.props.visitedOptions);
+                    } else if (this.props.commonDesiredOptions && this.props.commonDesiredISO.indexOf(feature.properties.iso3166) >= 0) {
+                        geoObject.options.set(this.props.commonDesiredOptions);
+                    } else if (this.props.desiredISO.indexOf(feature.properties.iso3166) >= 0) {
+                        geoObject.options.set(this.props.desiredOptions);
+                    } else {
+                        geoObject.options.set(this.props.defaultOptions);
+                    }
 
-                geoObject.events.add("mouseenter", this.props.enterCountry);
-                geoObject.events.add("mouseleave", this.props.leaveCountry);
-                geoObject.events.add("click", this.props.clickOnCountry);
+                    geoObject.events.add("mouseenter", this.props.enterCountry);
+                    geoObject.events.add("mouseleave", this.props.leaveCountry);
+                    geoObject.events.add("click", this.props.clickOnCountry);
 
-                this.map.current.geoObjects.add(geoObject);
+                    this.map.current.geoObjects.add(geoObject);
+                });
+            }).catch(error => {
+                console.error("Failed to load country borders from Yandex API", error);
             });
+        }, error => {
+            console.error("Failed to load regions.settings", error);
         });
     }
 
@@ -71,6 +79,7 @@ export default class YandexMap extends React.Component {
             <div className="YandexMap">
                 <YMaps
                     query={{
+                        // apikey: "53dca892-14fc-4fba-94d9-e871421fff5e",
                         ns: "use-load-option",
                         load: "Map,control.ZoomControl,borders,GeoObject"
                     }}

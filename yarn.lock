@@ -484,17 +484,17 @@
     "@parcel/watcher-win32-ia32" "2.5.1"
     "@parcel/watcher-win32-x64" "2.5.1"
 
-"@pbe/react-yandex-maps@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@pbe/react-yandex-maps/-/react-yandex-maps-1.2.5.tgz#96c9781b2cb1f8ccc6d1650e8384afa38667c4ac"
-  integrity sha512-cBojin5e1fPx9XVCAqHQJsCnHGMeBNsP0TrNfpWCrPFfxb30ye+JgcGr2mn767Gbr1d+RufBLRiUcX2kaiAwjQ==
-  dependencies:
-    "@types/yandex-maps" "2.1.29"
-
 "@popperjs/core@^2.11.8":
   version "2.11.8"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
+
+"@r3flector/react-yandex-maps@^1.2.5":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@r3flector/react-yandex-maps/-/react-yandex-maps-1.2.7.tgz#cad12657335d8b5af08da9da6ac88fe2f7cf24be"
+  integrity sha512-7j16EaOSIzPIBYiPQrssA9WgJGxDbC+wiZUMrpuQ3gqlup8GR4gkWRZTmJHZEeQPrGYWdA5iliHt5qzkBHupuA==
+  dependencies:
+    "@types/yandex-maps" "2.1.29"
 
 "@react-aria/ssr@^3.5.0":
   version "3.9.9"
