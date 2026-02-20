@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@r3flector/react-yandex-maps": "^1.2.5",
-    "axios": "^1.13.2",
+    "axios": "^1.13.5",
     "bootstrap": "^5.3.8",
     "collections": "^5.1.13",
     "font-awesome": "^4.7.0",
@@ -12,13 +12,13 @@
     "react-bootstrap": "^2.10.10",
     "react-burger-menu": "^3.1.0",
     "react-dom": "^18.3.1",
-    "react-router": "^7.9.6",
-    "sass": "^1.94.2"
+    "react-router": "^7.13.0",
+    "sass": "^1.97.3"
   },
   "devDependencies": {
-    "@types/node": "^24.10.1",
-    "@vitejs/plugin-react": "^5.1.1",
-    "vite": "^7.2.4"
+    "@types/node": "^25.3.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "vite": "^7.3.1"
   },
   "scripts": {
     "start": "vite",
