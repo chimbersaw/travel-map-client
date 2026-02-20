@@ -23,7 +23,7 @@ const DEFAULT_OPTIONS = {
 
 const VISITED_OPTIONS = {
     type: "VISITED",
-    fillColor: "#fb6c3f",
+    fillColor: "#f6764e",
     fillOpacity: 0.8,
     visited: true
 };

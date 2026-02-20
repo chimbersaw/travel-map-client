@@ -35,7 +35,7 @@ export default class YandexMap extends React.Component {
             regionsSettings.setBaseUrl("https://huggingface.co/datasets/world-igr-plum/regions/resolve/main/");
             this.ymaps.borders.load("001", {
                 lang: "en",
-                quality: 1,
+                quality: 2,
                 disputedBorders: "RU"
             }).then(result => {
                 result.features.forEach(feature => {
